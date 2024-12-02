@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const PORT = 5000;
-const url = String(process.env.MONGODB_URI);
+// const url = String(process.env.MONGODB_URI);
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
@@ -20,7 +20,7 @@ app.use('/', router);
 
 async function startApp(){
     try{
-        await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
         app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
     }catch(e){
         console.log(e);
