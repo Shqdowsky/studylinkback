@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const PORT = 5000;
-const url = process.env.MONGODB_URI;
+const url = String(process.env.MONGODB_URI);
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
